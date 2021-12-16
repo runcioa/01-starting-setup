@@ -15,11 +15,12 @@ const ExpenseForm = ()=>{
 
     })
 
+    //Il modo corretto di farlo
     const titleChangeHandler = (event) =>{
-        setUserInput({
-            ...userInput,
-            enteredTitle = event.target.value,
-        })
+        setUserInput((prevState)=>{
+            return {...prevState,
+            enteredTitle = event.target.value }
+        });
     };
     
     const amountChangeHandler = (event) =>{
@@ -32,7 +33,7 @@ const ExpenseForm = ()=>{
         setEnteredDate({
             ...userInput,
             setEnteredDate = event.target.value});
-    }
+    };
 
     return(
         <div>
